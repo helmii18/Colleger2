@@ -23,7 +23,7 @@ public class CourseListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_course_list);
 
         // Initialize the course list and adapter
-        Intent intent = new Intent(this, CourseDetailsActivity.class);
+        Intent intent = new Intent(this, test.class);
 
         courseList = new ArrayList<>();
         courseAdapter = new CourseAdapter(this, courseList);

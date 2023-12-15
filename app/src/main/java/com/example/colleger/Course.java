@@ -21,6 +21,12 @@ public class Course {
         this.sectionDate = sectionDate;
         this.sectionTime = sectionTime;
     }
+    public Course(String courseName, int creditHours, String professorName, String grade) {
+        this.courseName = courseName;
+        this.creditHours = creditHours;
+        this.professorName = professorName;
+        this.grade = grade;
+    }
     public Course(String courseName){
         this.courseName = courseName;
 

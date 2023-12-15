@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CourseDetailsActivity extends AppCompatActivity {
 
     @Override
@@ -46,6 +49,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
         // Add listeners or set up other UI elements for Lecture Date, Lecture Time, Section Date, and Section Time
 
         Button saveCourseButton = findViewById(R.id.saveCourseButton);
+
         saveCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +60,8 @@ public class CourseDetailsActivity extends AppCompatActivity {
     }
 
     private void saveCourse() {
+         Intent intent = new Intent(this, CourseDetailsActivity.class);
+
         // Retrieve values from UI elements
         EditText courseNameEditText = findViewById(R.id.courseNameEditText);
         Spinner creditHoursSpinner = findViewById(R.id.creditHoursSpinner);
@@ -75,13 +81,19 @@ public class CourseDetailsActivity extends AppCompatActivity {
         String sectionDate = sectionDateEditText.getText().toString();
         String sectionTime = sectionTimeEditText.getText().toString();
 
-        // Add logic to save the course information (e.g., store it in a database, etc.)
+        intent.putExtra("courseName", courseName);
+        intent.putExtra("creditHours", creditHours);
+        intent.putExtra("professorName", professorName);
+        intent.putExtra("selectedGrade", selectedGrade);
+        intent.putExtra("lectureDate", lectureDate);
+        intent.putExtra("lectureTime", lectureTime);
+        intent.putExtra("sectionDate", sectionDate);
+        intent.putExtra("sectionTime", sectionTime);
 
         // Optionally, you can navigate back to the previous activity or perform other actions
+        startActivity(intent);
         finish();
     }
     private void startCourseListActivity() {
-        Intent intent = new Intent(this, CourseDetailsActivity.class);
-        startActivity(intent); // Use a requestCode (e.g., 1) to identify the result
     }
 }
