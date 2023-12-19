@@ -23,13 +23,16 @@ public class SemesterAdapter extends ArrayAdapter<Semester> {
         Semester semester = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_semester, parent, false);
         }
 
-        TextView textView = convertView.findViewById(android.R.id.text1);
-
+        TextView name = convertView.findViewById(R.id.semesterNameTextView);
+        TextView ch = convertView.findViewById(R.id.chTextView);
+        TextView gpa = convertView.findViewById(R.id.GPATextView);
         if (semester != null) {
-            textView.setText(semester.getSemesterName());
+            name.setText("Semester: " +semester.getSemesterName());
+            ch.setText("credit hours: " +semester.getTotalCreditHours());
+            gpa.setText(String.valueOf("GPA: " +semester.getSemesterGPA()));
         }
 
         return convertView;

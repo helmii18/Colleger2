@@ -32,8 +32,7 @@ public class CourseAdapter extends ArrayAdapter<Course> {
         TextView professorNameTextView = convertView.findViewById(R.id.professorNameTextView);
         TextView creditHoursTextView = convertView.findViewById(R.id.creditHoursTextView);
         TextView gradeTextView = convertView.findViewById(R.id.gradeTextView);
-        TextView lectureDateTimeTextView = convertView.findViewById(R.id.lectureDateTimeTextView);
-        TextView sectionDateTimeTextView = convertView.findViewById(R.id.sectionDateTimeTextView);
+
 
         // Populate the data into the template view using the data object
         if (course != null) {
@@ -42,13 +41,7 @@ public class CourseAdapter extends ArrayAdapter<Course> {
             creditHoursTextView.setText("Credit Hours: " + course.getCreditHours());
             gradeTextView.setText("Grade: " + course.getGrade());
 
-            // Assuming lecture date and time are not null (add appropriate checks if needed)
-            String lectureDateTime = "Lecture: " + course.getLectureDate() + " at " + course.getLectureTime();
-            lectureDateTimeTextView.setText(lectureDateTime);
 
-            // Assuming section date and time are not null (add appropriate checks if needed)
-            String sectionDateTime = "Section: " + course.getSectionDate() + " at " + course.getSectionTime();
-            sectionDateTimeTextView.setText(sectionDateTime);
         }
 
         // Return the completed view to render on screen

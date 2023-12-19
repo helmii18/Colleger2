@@ -30,10 +30,14 @@ public class CourseListActivity extends AppCompatActivity {
 
         // Get the semester name from the intent
         String semesterName = getIntent().getStringExtra("semesterName");
+        double semetergpa = getIntent().getDoubleExtra("semesterGPA",0.0);
 
         // Set the semester title
         TextView semesterTitleTextView = findViewById(R.id.semesterTitleTextView);
-        semesterTitleTextView.setText("Semester: " + semesterName);
+        semesterTitleTextView.setText(semesterName);
+
+        TextView semesterGPA = findViewById(R.id.semesterGPA);
+        semesterGPA.setText("GPA: " + semetergpa);
 
         // Set up the ListView and the CourseAdapter
         ListView courseListView = findViewById(R.id.courseListView);
@@ -92,14 +96,13 @@ public class CourseListActivity extends AppCompatActivity {
             int creditHours = data.getIntExtra("creditHours", 0);
             String professorName = data.getStringExtra("professorName");
             String grade = data.getStringExtra("grade");
-            String lectureDate = data.getStringExtra("lectureDate");
-            String lectureTime = data.getStringExtra("lectureTime");
-            String sectionDate = data.getStringExtra("sectionDate");
-            String sectionTime = data.getStringExtra("sectionTime");
+//            String lectureDate = data.getStringExtra("lectureDate");
+//            String lectureTime = data.getStringExtra("lectureTime");
+//            String sectionDate = data.getStringExtra("sectionDate");
+//            String sectionTime = data.getStringExtra("sectionTime");
 
             // Create a new Course object with the retrieved details
-            Course newCourse = new Course(courseName, creditHours, professorName, grade,
-                    lectureDate, lectureTime, sectionDate, sectionTime);
+            Course newCourse = new Course(courseName, creditHours, professorName, grade);
 
             // Add the new course to the course list
             courseList.add(newCourse);
@@ -117,34 +120,6 @@ public class CourseListActivity extends AppCompatActivity {
         courseAdapter.notifyDataSetChanged();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

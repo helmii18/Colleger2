@@ -64,6 +64,7 @@ public class HomeFragment extends Fragment {
 
         Intent intent = new Intent(requireContext(), CourseListActivity.class);
         intent.putExtra("semesterName", selectedSemester.getSemesterName());
+        intent.putExtra("semesterGPA", selectedSemester.getSemesterGPA());
         startActivity(intent);
     }
 }
