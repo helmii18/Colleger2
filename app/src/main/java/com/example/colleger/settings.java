@@ -58,4 +58,10 @@ public class settings extends AppCompatActivity {
             }
         });
     }
+    public void onBroadcastSendBtnCLicked (View v){
+        Intent intent=new Intent();
+        intent.setAction("mybroadcast");
+        sendBroadcast(intent);
+
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.colleger;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         button4 = findViewById(R.id.button4);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-
+        IntentFilter filter=new IntentFilter("mybroadcast");
+        MyReceiver obj =new MyReceiver();
+        registerReceiver(obj,filter);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
